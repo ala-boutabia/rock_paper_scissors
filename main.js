@@ -1,21 +1,27 @@
-var choices = ["Rock", "Paper", "Scissors"];
-
-function computerPlay(items) {
+function computerPlay() {
+    let items = ["Rock", "Paper", "Scissors"];
     let computerChoice = items[Math.floor(Math.random() * items.length)];
     return computerChoice;
 }
 
-var cp = computerPlay(choices).toLowerCase();
-console.log("Computer choice: ", cp);
-
-function playerSelection(cp) {
-    let playerChoice = prompt("enter a choice: ").toLowerCase();
-    console.log("player choice: ", playerChoice)
-    if (playerChoice === "paper" && cp === "rock") {
-        return "you lose";
-    }
-
+function playerSelection() {
+    let playerChoice = prompt("enter a choice: ");
+    return playerChoice;
 }
 
+const ps = playerSelection().toLowerCase();
+console.log("player choice: ", ps);
+const cs = computerPlay().toLowerCase();
+console.log("Computer choice: ", cs);
 
-console.log(playerSelection(cp));
+
+function playRound(playerSelection, computerSelection) {
+    if (playerSelection === "rock" && computerSelection === "paper") {
+        return `You Lose! ${computerSelection} beats ${playerSelection}`
+    } if (playerSelection === "rock" && computerSelection === "scissors") {
+        return `You Win! ${playerSelection} beats ${computerSelection}`
+    }
+}
+
+console.log(playRound(ps, cs));
+
