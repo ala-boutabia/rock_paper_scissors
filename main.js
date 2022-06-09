@@ -9,13 +9,12 @@ function playerSelection() {
     return playerChoice;
 }
 
-const ps = playerSelection().toLowerCase();
-console.log("player choice: ", ps);
-const cs = computerPlay().toLowerCase();
-console.log("Computer choice: ", cs);
+//const ps = playerSelection().toLowerCase();
+
+//const cs = computerPlay().toLowerCase();
 
 
-function playRound(playerSelection, computerSelection) {
+function playRound(computerSelection, playerSelection) {
     if (playerSelection === "rock" && computerSelection === "paper") {
         return `You Lose! ${computerSelection} beats ${playerSelection}`
     } if (playerSelection === "rock" && computerSelection === "scissors") {
@@ -23,5 +22,17 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-console.log(playRound(ps, cs));
+// console.log(playRound(ps, cs));
 
+function round() {
+    for (let i = 0; i < 5; i++) {
+        let a = computerPlay().toLowerCase();
+        //console.log("computer", a);
+        let b = playerSelection().toLowerCase();
+        //console.log("player", b)
+        let c = playRound(a, b)
+        console.log(`Round ${i + 1}: ${c}`);
+    }
+}
+
+console.log(round());
